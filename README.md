@@ -19,3 +19,10 @@ You can build this machine simple go to the root of this project and execute the
 vagrant up
 ```
 
+## Installed software
+
+The following packages are installed:
+
+- Java
+- Eclipse
+- Maven 3
