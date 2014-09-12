@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
  config.vm.provision :shell, :path => "shell/main.sh"
 
  config.vm.define "atdd-training-vm" do |atddtraining|
-   atddtraining.vm.network "private_network", ip: "33.33.33.50"
+   atddtraining.vm.hostname = "atdd#{rand(010..500)}.codecentric.nl"
    atddtraining.vm.provision "puppet"
  end
 

@@ -12,12 +12,7 @@ class atddtraininginstance::install {
   class { 'atddtraininginstance::install::xfce': } ->
   class { 'atddtraininginstance::install::atdduser': } ->
   class { 'atddtraininginstance::install::sourcecode': } ->
-  class { 'atddtraininginstance::install::tools': } ->
-
-  class { 'java':
-    distribution => 'jdk'
-  }
-
+  class { 'atddtraininginstance::install::tools': }
 
 }
 
@@ -47,11 +42,13 @@ class atddtraininginstance::install::debs {
 
 # Source code to download
 class atddtraininginstance::install::sourcecode {
+  $repo_path = '/home/atdd/workspace/TDDTrainingApplicationCC'
   git::reposync { 'TDDTrainingApplicationCC':
     source_url      => 'https://github.com/Hylke1982/TDDTrainingApplicationCC.git',
-    destination_dir => '/home/atdd/workspace/TDDTrainingApplicationCC',
+    destination_dir => "$repo_path",
     owner           => 'atdd',
-    group           => 'atdd'
+    group           => 'atdd',
+    post_command => "chown -R atdd:atdd $repo_path",
   }
 }
 
@@ -59,6 +56,10 @@ class atddtraininginstance::install::sourcecode {
 class atddtraininginstance::install::tools {
   package { ['maven', 'eclipse']:
     ensure => installed,
+  }
+
+  class { 'java':
+    distribution => 'jdk'
   }
 }
 
@@ -93,7 +94,7 @@ class atddtraininginstance::install::atdduser {
   file { ['/home/atdd','/home/atdd/workspace']:
     ensure => directory,
     owner  => 'atdd',
-    groupd => 'atdd'
+    group => 'atdd'
   } ->
 
   file { '/home/atdd/.xinitrc':
