@@ -26,3 +26,12 @@ The following packages are installed:
 - Java
 - Eclipse
 - Maven 3
+
+## Login
+
+You can login with the following username and password
+
+```
+username: atdd
+password: atdd
+```
