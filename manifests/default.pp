@@ -48,7 +48,7 @@ class atddtraininginstance::install::sourcecode {
     destination_dir => "$repo_path",
     owner           => 'atdd',
     group           => 'atdd',
-    post_command => "chown -R atdd:atdd $repo_path",
+    post_command    => "chown -R atdd:atdd $repo_path",
   }
 }
 
@@ -59,7 +59,8 @@ class atddtraininginstance::install::tools {
   }
 
   class { 'java':
-    distribution => 'jdk'
+    distribution => 'jdk',
+    package      => 'openjdk-7-jdk'
   }
 }
 
@@ -94,7 +95,7 @@ class atddtraininginstance::install::atdduser {
   file { ['/home/atdd','/home/atdd/workspace']:
     ensure => directory,
     owner  => 'atdd',
-    group => 'atdd'
+    group  => 'atdd'
   } ->
 
   file { '/home/atdd/.xinitrc':
