@@ -2,3 +2,4 @@ forge 'http://forge.puppetlabs.com'
 
 mod 'puppetlabs/apt'
 mod 'puppetlabs/java'
+mod 'example42/git'
