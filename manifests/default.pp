@@ -50,7 +50,8 @@ class atddtraininginstance::install::sourcecode {
   git::reposync { 'TDDTrainingApplicationCC':
     source_url      => 'https://github.com/Hylke1982/TDDTrainingApplicationCC.git',
     destination_dir => '/home/atdd/workspace/TDDTrainingApplicationCC',
-    owner => 'atdd',
+    owner           => 'atdd',
+    group           => 'atdd'
   }
 }
 
@@ -92,11 +93,13 @@ class atddtraininginstance::install::atdduser {
   file { ['/home/atdd','/home/atdd/workspace']:
     ensure => directory,
     owner  => 'atdd',
+    groupd => 'atdd'
   } ->
 
   file { '/home/atdd/.xinitrc':
     path    => "/home/atdd/.xinitrc",
     owner   => "atdd",
+    group   => 'atdd',
     content => "exec startxfce4",
   }
 
@@ -104,6 +107,7 @@ class atddtraininginstance::install::atdduser {
   file { '/home/atdd/.xsession':
     path    => "/home/atdd/.xsession",
     owner   => "atdd",
+    group   => "atdd",
     content => "xfce4-session",
   }
 }
