@@ -54,13 +54,8 @@ class atddtraininginstance::install::sourcecode {
 
 # Install tools
 class atddtraininginstance::install::tools {
-  package { ['maven', 'eclipse']:
+  package { ['maven', 'eclipse','openjdk-7-jdk']:
     ensure => installed,
-  }
-
-  class { 'java':
-    distribution => 'jdk',
-    package      => 'openjdk-7-jdk'
   }
 }
 
