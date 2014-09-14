@@ -54,7 +54,7 @@ class atddtraininginstance::install::sourcecode {
 
 # Install tools
 class atddtraininginstance::install::tools {
-  package { ['maven', 'eclipse','openjdk-7-jdk']:
+  package { ['maven', 'eclipse','openjdk-7-jdk','iceweasel']:
     ensure => installed,
   }
 }
@@ -110,7 +110,7 @@ class atddtraininginstance::install::atdduser {
 
   file { "/home/atdd/.bashrc":
     owner   => 'atdd',
-    group => 'atdd',
+    group   => 'atdd',
     path    => '/home/atdd/.bashrc',
     content => template('/vagrant/templates/home/atdd/.bashrc.erb')
   }
