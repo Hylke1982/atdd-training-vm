@@ -107,6 +107,13 @@ class atddtraininginstance::install::atdduser {
     group   => "atdd",
     content => "xfce4-session",
   }
+
+  file { "/home/atdd/.bashrc":
+    owner   => 'atdd',
+    group => 'atdd',
+    path    => '/home/atdd/.bashrc',
+    content => template('/vagrant/templates/home/atdd/.bashrc.erb')
+  }
 }
 
 # Configure node
