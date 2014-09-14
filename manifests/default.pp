@@ -42,9 +42,9 @@ class atddtraininginstance::install::debs {
 
 # Source code to download
 class atddtraininginstance::install::sourcecode {
-  $repo_path = '/home/atdd/workspace/TDDTrainingApplicationCC'
-  git::reposync { 'TDDTrainingApplicationCC':
-    source_url      => 'https://github.com/Hylke1982/TDDTrainingApplicationCC.git',
+  $repo_path = '/home/atdd/workspace/TDDTrainingApplication'
+  git::reposync { 'TDDTrainingApplication':
+    source_url      => 'https://github.com/codecentric/TDDTrainingApplication.git',
     destination_dir => "$repo_path",
     owner           => 'atdd',
     group           => 'atdd',
